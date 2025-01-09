@@ -74,7 +74,7 @@ function Navbar() {
                 <div className="profile-dropdown" ref={dropdownRef}>
                   <ul>
                     <li>
-                      <Link to="http://localhost:3002/">kite</Link>
+                      <Link to="http://localhost:3001/">kite</Link>
                     </li>
                   </ul>
                 </div>
