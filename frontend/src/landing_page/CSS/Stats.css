@@ -1,0 +1,36 @@
+.paregraph a{
+    text-decoration: none;
+}
+
+.paregraph a:hover{
+    color: black;
+}
+
+.image_1{
+    width: 38rem;
+    margin-bottom: 15px;
+}
+
+.explore_1{
+    margin-left: 7rem;
+    margin-right: 5rem;
+    text-decoration: none;
+}
+
+.explore_1:hover{
+    color: black;
+}
+
+.explore_2{
+    text-decoration: none;
+}
+
+.explore_2:hover{
+    color: black;
+}
+
+.image_2{
+    margin-top: 2rem;
+    margin-left: 11rem;
+    width: 65%;
+}

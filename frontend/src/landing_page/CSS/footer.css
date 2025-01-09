@@ -1,0 +1,25 @@
+.icon{
+    font-size: large;
+    margin-right: 1rem;
+    opacity: 0.7;
+}
+
+.pera{
+    font-size:x-small;
+}
+
+.foot{
+    background-color:#fbfbfb;
+}
+
+.pera1 a{
+    text-decoration: none;
+    color: #666;
+    line-height: 1rem;
+    display: flex;
+}
+
+.pera1 p{
+    font-weight: 450;
+    font-size: large;
+}
