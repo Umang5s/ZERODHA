@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3002;
 const dbUrl = process.env.MONGO_URL;
 
 // Middleware setup
-app.use(cors({ origin: "https://zerodha-dashboard-5flw.onrender.com","http://localhost:3000", credentials: true }));
+app.use(cors({ origin: ["https://zerodha-dashboard-5flw.onrender.com","http://localhost:3000"], credentials: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.json());
