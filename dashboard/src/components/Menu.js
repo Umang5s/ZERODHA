@@ -34,15 +34,15 @@ const Menu = () => {
     };
   }, [dropdownRef]);
   
-  const handleLogout = () => {
-    // Remove the JWT token from localStorage (or sessionStorage/cookies)
-    localStorage.removeItem('token');
+  // const handleLogout = () => {
+  //   // Remove the JWT token from localStorage (or sessionStorage/cookies)
+  //   localStorage.removeItem('token');
 
-    // Optionally, send a request to the backend if needed (e.g., to invalidate the token on the server)
+  //   // Optionally, send a request to the backend if needed (e.g., to invalidate the token on the server)
 
-    // Redirect the user to the login page or another page after logout
-    Navigate('/login');
-  };
+  //   // Redirect the user to the login page or another page after logout
+  //   Navigate('/login');
+  // };
 
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
