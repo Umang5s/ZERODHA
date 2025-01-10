@@ -11,7 +11,7 @@ const Logout = () => {
     const logoutUser = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:3002/logout", // Replace with your backend URL if different
+          "https://zerodha-bakend.onrender.com/logout", // Replace with your backend URL if different
           {},
           {
             withCredentials: true, // Ensures cookies are included in the request
