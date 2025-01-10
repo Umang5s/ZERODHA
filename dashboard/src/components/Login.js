@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://zerodha-backend-4u4v.onrender.com/login",
+        "https://zerodha-backend-6m64.onrender.com/login",
         { email, password },
         { withCredentials: true }
       );
