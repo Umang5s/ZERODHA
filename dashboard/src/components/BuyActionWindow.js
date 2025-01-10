@@ -12,15 +12,28 @@ const BuyActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
 
   const handleBuyClick = () => {
-    axios.post("https://zerodha-bakend.onrender.com/order",{
-      name: uid,
-      qty: stockQuantity,
-      price: stockPrice,
-      mode: "BUY",
+   try {
+      const response = await axios.post("https://zerodha-bakend.onrender.com/order", {
+        name: uid,
+        qty: stockQuantity,
+        price: stockPrice,
+        mode: "BUY",
+      });
+
+      if (response.data.success) {
+        // Handle the success case, e.g., show a success message
+        console.log("Order placed successfully");
+      } else {
+        // Handle the error case, e.g., show an error message
+        console.error("Error placing order:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error in sending order request:", error);
     }
-  );
-    GeneralContext.closeBuyWindow();
+
+    GeneralContext.closeBuyWindow(); // Close the buy window
   };
+
 
   const handleCancelClick = () => {
     GeneralContext.closeBuyWindow();
