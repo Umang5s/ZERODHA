@@ -23,7 +23,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3002/signup", // Replace with your backend URL
+        "https://zerodha-backend-4u4v.onrender.com/signup", // Replace with your backend URL
         { email, username, password },
         { withCredentials: true } // Include cookies if necessary (e.g., JWT)
       );
