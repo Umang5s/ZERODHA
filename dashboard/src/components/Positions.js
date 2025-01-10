@@ -6,7 +6,7 @@ import axios from "axios";
 const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
-  axios.get("http://localhost:3002/allposition").then((res)=>{
+  axios.get("https://zerodha-backend-4u4v.onrender.com/allposition").then((res)=>{
     console.log(res.data);
     setAllPositions(res.data);
   });
