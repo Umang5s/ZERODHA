@@ -7,7 +7,7 @@ const Summary = () => {
   useEffect(() => {
     // Fetch the username from the backend API
     axios
-      .get("http://localhost:3002/user")
+      .get("https://zerodha-backend-4u4v.onrender.com/user")
       .then((res) => {
         setUsername(res.data.username); // Set the username from the response
       })
