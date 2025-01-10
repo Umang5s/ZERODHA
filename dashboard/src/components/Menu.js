@@ -1,7 +1,6 @@
 import React, { useState,useRef,useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./menus.css";
-// import { Navigate } from "react-router-dom";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -34,16 +33,7 @@ const Menu = () => {
     };
   }, [dropdownRef]);
   
-  // const handleLogout = () => {
-  //   // Remove the JWT token from localStorage (or sessionStorage/cookies)
-  //   localStorage.removeItem('token');
-
-  //   // Optionally, send a request to the backend if needed (e.g., to invalidate the token on the server)
-
-  //   // Redirect the user to the login page or another page after logout
-  //   Navigate('/login');
-  // };
-
+ 
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
 
