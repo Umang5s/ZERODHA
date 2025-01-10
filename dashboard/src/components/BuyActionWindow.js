@@ -11,7 +11,7 @@ const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
 
-  const handleBuyClick = () => {
+  const handleBuyClick = async() => {
    try {
       const response = await axios.post("https://zerodha-bakend.onrender.com/order", {
         name: uid,
