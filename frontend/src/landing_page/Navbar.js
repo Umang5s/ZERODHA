@@ -74,7 +74,7 @@ function Navbar() {
                 <div className="profile-dropdown" ref={dropdownRef}>
                   <ul>
                     <li>
-                      <Link to="http://localhost:3001/">kite</Link>
+                      <Link to="https://zerodha-dashboard-jwge.onrender.com">kite</Link>
                     </li>
                   </ul>
                 </div>
