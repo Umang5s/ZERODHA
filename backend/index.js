@@ -122,7 +122,7 @@ app.get("/allorder", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
   mongoose
-    .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true,useFindAndModify: false,useCreateIndex: true, })
     .then(() => console.log("DB connected!"))
     .catch((err) => console.error("DB connection error:", err));
 });
