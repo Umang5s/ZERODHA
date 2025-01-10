@@ -1,7 +1,7 @@
 import React, { useState,useRef,useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./menus.css";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
