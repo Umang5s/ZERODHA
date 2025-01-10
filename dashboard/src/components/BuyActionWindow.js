@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
 
 import GeneralContext from "./GeneralContext";
@@ -10,36 +9,47 @@ import "./Buyactionwindow.css";
 const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleBuyClick = async() => {
-   try {
-      const response = await axios.post("https://zerodha-bakend.onrender.com/newOrder", {
+  // Ensure this function is marked as async to use 'await'
+  const handleBuyClick = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.post("https://zerodha-bakend.onrender.com/order", {
         name: uid,
         qty: stockQuantity,
         price: stockPrice,
         mode: "BUY",
       });
 
+      console.log("Order Response:", response); // Debugging the response
+
       if (response.data.success) {
-        // Handle the success case, e.g., show a success message
+        // Handle success
         console.log("Order placed successfully");
+        alert("Order placed successfully!");
       } else {
-        // Handle the error case, e.g., show an error message
+        // Handle error
         console.error("Error placing order:", response.data.message);
+        setError(response.data.message);
       }
     } catch (error) {
+      // Handle unexpected errors
       console.error("Error in sending order request:", error);
+      setError("An error occurred while placing the order.");
+    } finally {
+      setLoading(false);
     }
 
-    GeneralContext.closeBuyWindow(); // Close the buy window
+    GeneralContext.closeBuyWindow(); // Close buy window
   };
-
 
   const handleCancelClick = () => {
-    GeneralContext.closeBuyWindow();
+    GeneralContext.closeBuyWindow(); // Close buy window
   };
-
-
 
   return (
     <div className="container" id="buy-window" draggable="true">
@@ -51,7 +61,7 @@ const BuyActionWindow = ({ uid }) => {
               type="number"
               name="qty"
               id="qty"
-              onChange={(e) => setStockQuantity(e.target.value)}
+              onChange={(e) => setStockQuantity(Number(e.target.value))}
               value={stockQuantity}
             />
           </fieldset>
@@ -62,7 +72,7 @@ const BuyActionWindow = ({ uid }) => {
               name="price"
               id="price"
               step="0.05"
-              onChange={(e) => setStockPrice(e.target.value)}
+              onChange={(e) => setStockPrice(Number(e.target.value))}
               value={stockPrice}
             />
           </fieldset>
@@ -72,12 +82,18 @@ const BuyActionWindow = ({ uid }) => {
       <div className="buttons">
         <span>Margin required ₹140.65</span>
         <div>
-          <button className="btn btn-blue" onClick={handleBuyClick} >Buy</button>
-          <button to="" className="btn btn-grey" onClick={handleCancelClick}>
-            Cancel
+          <button 
+            className="btn btn-blue" 
+            onClick={handleBuyClick} 
+            disabled={loading}
+          >
+            {loading ? "Placing Order..." : "Buy"}
           </button>
+          <button className="btn btn-grey" onClick={handleCancelClick}>Cancel</button>
         </div>
       </div>
+
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 };
